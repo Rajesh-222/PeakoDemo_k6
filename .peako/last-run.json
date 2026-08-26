@@ -1,5 +1,5 @@
 {
-  "triggered_at": "2026-08-26T07:03:56.855Z",
+  "triggered_at": "2026-08-26T08:28:35.292Z",
   "script": "Test_suit_1_k6.js",
   "users": 10,
   "rampup": 5,
