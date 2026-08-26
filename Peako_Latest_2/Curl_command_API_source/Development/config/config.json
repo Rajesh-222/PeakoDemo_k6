@@ -6,16 +6,16 @@
     "uuid": "828152"
   },
   "collection": {
-    "id": 4,
-    "name": "Postman_API_source_1",
-    "description": "Postman with env included",
-    "source_type": "postman",
+    "id": 5,
+    "name": "Curl_command_API source ",
+    "description": "Test with Curl command in K6 ",
+    "source_type": "curl",
     "environments": [
-      "QA"
+      "Development"
     ],
-    "endpoint_count": 4
+    "endpoint_count": 1
   },
-  "environment": "QA",
+  "environment": "Development",
   "rules": [
     {
       "id": 3,
@@ -34,32 +34,7 @@
       "value": "2000"
     }
   ],
-  "test_plans": [
-    {
-      "id": 3,
-      "name": "Test_suit_1_k6",
-      "engine": "k6",
-      "test_type": "load",
-      "vusers": 10,
-      "rampup": 5,
-      "iter_mode": "duration",
-      "loops": 1,
-      "duration": 300,
-      "status": "generated"
-    },
-    {
-      "id": 4,
-      "name": "Suite_2_curl command test with k6",
-      "engine": "k6",
-      "test_type": "load",
-      "vusers": 10,
-      "rampup": 30,
-      "iter_mode": "duration",
-      "loops": 1,
-      "duration": 100,
-      "status": "pending"
-    }
-  ],
+  "test_plans": [],
   "config": {
     "urls": [
       {
