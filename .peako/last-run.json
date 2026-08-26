@@ -1,0 +1,7 @@
+{
+  "triggered_at": "2026-08-26T06:24:44.916Z",
+  "script": "Test_suit_1_k6.js",
+  "users": 10,
+  "rampup": 5,
+  "duration": 300
+}
