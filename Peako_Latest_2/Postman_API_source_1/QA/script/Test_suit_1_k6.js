@@ -6,7 +6,7 @@ const THREADS  = parseInt(__ENV.THREADS  || '10');
 const RAMP_UP  = parseInt(__ENV.RAMP_UP  || '5');
 const DURATION = parseInt(__ENV.DURATION || '300');
 const PROTOCOL = __ENV.PROTOCOL || 'https';
-const URL      = __ENV.URL      || '';
+const URL      = __ENV.URL      || 'dummyjson.com';
 const PORT     = __ENV.PORT     || '443';
 const BASE_URL = `${PROTOCOL}://${URL}:${PORT}`;
 
@@ -29,6 +29,8 @@ export default function () {
     },
   });
   check(res0, { 'Login status is 2xx/3xx': (r) => r.status >= 200 && r.status < 400 });
+  const accessToken = res0.json()?.accessToken;
+  const refreshToken = res0.json()?.refreshToken;
   sleep(1);
 
   // getUserDetails
