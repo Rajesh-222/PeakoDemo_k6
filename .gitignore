@@ -1,0 +1,11 @@
+# PerfStudio — ignore large binary files and temp artifacts
+*_workspace/
+*.log
+*.tmp
+node_modules/
+.env
+
+# Execution results (JTL, JMeter HTML reports, analytics PDFs) are tracked — a user
+# commits/pushes their own run results like any other file. jmeter.log is explicitly
+# un-ignored since it would otherwise match the *.log rule above.
+!**/jmeter.log
