@@ -47,6 +47,18 @@
       "loops": 1,
       "duration": 200,
       "status": "generated"
+    },
+    {
+      "id": 10,
+      "name": "Suite 6- Stress test ",
+      "engine": "k6",
+      "test_type": "stress",
+      "vusers": 50,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 300,
+      "status": "pending"
     }
   ],
   "config": {
