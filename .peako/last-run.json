@@ -1,6 +1,6 @@
 {
-  "triggered_at": "2026-08-27T09:11:04.669Z",
-  "script": "Suite_2___swagger_file_test_k6.js",
+  "triggered_at": "2026-08-27T09:21:00.244Z",
+  "script": "Suite_3_-_swagger_file_k6_stress.js",
   "users": 50,
   "rampup": 30,
   "duration": 300

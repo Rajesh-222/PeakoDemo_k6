@@ -1,6 +1,37 @@
-[
-  { "name": "Get Post", "method": "GET", "url": "https://jsonplaceholder.typicode.com/posts/1", "headers": {}, "body": "", "queryParams": {} },
-  { "name": "Create Post", "method": "POST", "url": "https://jsonplaceholder.typicode.com/posts", "headers": { "Content-Type": "application/json" }, "body": "{\"title\":\"foo\",\"body\":\"bar\",\"userId\":1}", "queryParams": {} },
-  { "name": "Update Post", "method": "PUT", "url": "https://jsonplaceholder.typicode.com/posts/1", "headers": { "Content-Type": "application/json" }, "body": "{\"id\":1,\"title\":\"foo\",\"body\":\"bar\",\"userId\":1}", "queryParams": {} },
-  { "name": "Delete Post", "method": "DELETE", "url": "https://jsonplaceholder.typicode.com/posts/1", "headers": {}, "body": "", "queryParams": {} }
-]
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Post CRUD API", "version": "1.0.0" },
+  "servers": [{ "url": "https://jsonplaceholder.typicode.com" }],
+  "paths": {
+    "/posts": {
+      "post": {
+        "operationId": "createPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": { "title": "foo", "body": "bar", "userId": 1 }
+            }
+          }
+        }
+      }
+    },
+    "/posts/1": {
+      "get": {
+        "operationId": "getPost"
+      },
+      "put": {
+        "operationId": "updatePost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": { "id": 1, "title": "foo", "body": "bar", "userId": 1 }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deletePost"
+      }
+    }
+  }
+}

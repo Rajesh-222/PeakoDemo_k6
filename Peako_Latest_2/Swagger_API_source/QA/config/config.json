@@ -13,7 +13,7 @@
     "environments": [
       "QA"
     ],
-    "endpoint_count": 0
+    "endpoint_count": 4
   },
   "environment": "QA",
   "rules": [
@@ -34,7 +34,20 @@
       "value": "50"
     }
   ],
-  "test_plans": [],
+  "test_plans": [
+    {
+      "id": 29,
+      "name": "Suite 3 - swagger file k6 stress",
+      "engine": "k6",
+      "test_type": "stress",
+      "vusers": 50,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 300,
+      "status": "pending"
+    }
+  ],
   "config": {
     "urls": [
       {
