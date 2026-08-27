@@ -1,7 +1,7 @@
 {
-  "triggered_at": "2026-08-27T04:22:03.281Z",
-  "script": "Suite_4_-_K6_Load_Test_with_Swagger__OpeAPI_file.js",
+  "triggered_at": "2026-08-27T05:15:17.012Z",
+  "script": "Suite_5_-_Jmeter_test_Raw_Json_.jmx",
   "users": 10,
-  "rampup": 5,
-  "duration": 200
+  "rampup": 30,
+  "duration": 100
 }

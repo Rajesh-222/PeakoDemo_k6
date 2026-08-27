@@ -45,6 +45,18 @@
       "iter_mode": "duration",
       "loops": 1,
       "duration": 200,
+      "status": "generated"
+    },
+    {
+      "id": 9,
+      "name": "Suite 5 - Jmeter test Raw Json ",
+      "engine": "jmeter",
+      "test_type": "load",
+      "vusers": 10,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 100,
       "status": "pending"
     }
   ],
