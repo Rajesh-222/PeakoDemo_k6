@@ -25,6 +25,14 @@
       "unit": "ms",
       "severity": "error",
       "value": "500"
+    },
+    {
+      "id": 31,
+      "metric": "Throughput",
+      "operator": "<",
+      "unit": "req/s",
+      "severity": "error",
+      "value": "50"
     }
   ],
   "test_plans": [
@@ -38,6 +46,18 @@
       "iter_mode": "duration",
       "loops": 1,
       "duration": 150,
+      "status": "generated"
+    },
+    {
+      "id": 28,
+      "name": "Suite 2 + swagger file test k6",
+      "engine": "k6",
+      "test_type": "stress",
+      "vusers": 50,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 300,
       "status": "pending"
     }
   ],

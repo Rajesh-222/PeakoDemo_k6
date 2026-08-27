@@ -6,15 +6,14 @@
     "uuid": "828152"
   },
   "collection": {
-    "id": 55,
-    "name": "Postman collection API source ",
-    "description": "Postman collection API source  for k6 test with u2",
-    "source_type": "postman",
+    "id": 95,
+    "name": "Swagger API source",
+    "description": "Swagger API source k6 with user 2 ",
+    "source_type": "swagger",
     "environments": [
-      "QA",
-      "Development"
+      "QA"
     ],
-    "endpoint_count": 4
+    "endpoint_count": 0
   },
   "environment": "QA",
   "rules": [
@@ -35,32 +34,7 @@
       "value": "50"
     }
   ],
-  "test_plans": [
-    {
-      "id": 19,
-      "name": "Suite 1- Postman collection test ",
-      "engine": "k6",
-      "test_type": "load",
-      "vusers": 10,
-      "rampup": 30,
-      "iter_mode": "duration",
-      "loops": 1,
-      "duration": 150,
-      "status": "generated"
-    },
-    {
-      "id": 28,
-      "name": "Suite 2 + swagger file test k6",
-      "engine": "k6",
-      "test_type": "stress",
-      "vusers": 50,
-      "rampup": 30,
-      "iter_mode": "duration",
-      "loops": 1,
-      "duration": 300,
-      "status": "pending"
-    }
-  ],
+  "test_plans": [],
   "config": {
     "urls": [
       {
