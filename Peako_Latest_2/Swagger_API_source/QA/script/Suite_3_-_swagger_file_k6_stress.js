@@ -19,6 +19,7 @@ export const options = {
       { duration: '30s', target: 0 }
     ] } },
   thresholds: {
+    http_req_duration: ['p(99)<500'],
     http_reqs: ['rate>50']
   }
 };

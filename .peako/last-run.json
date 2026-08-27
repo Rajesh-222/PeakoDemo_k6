@@ -1,5 +1,5 @@
 {
-  "triggered_at": "2026-08-27T10:15:20.479Z",
+  "triggered_at": "2026-08-27T10:23:50.097Z",
   "script": "Suite_3_-_swagger_file_k6_stress.js",
   "users": 50,
   "rampup": 30,
