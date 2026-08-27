@@ -1,0 +1,55 @@
+{
+  "project": {
+    "id": 2,
+    "name": "Peako_Latest_2",
+    "description": "K6 End to end",
+    "uuid": "828152"
+  },
+  "collection": {
+    "id": 7,
+    "name": "Swagger / OpeAPI API source Test",
+    "description": "Swagger / OpeAPI API source Test with k6",
+    "source_type": "swagger",
+    "environments": [],
+    "endpoint_count": 4
+  },
+  "environment": "Default",
+  "rules": [
+    {
+      "id": 3,
+      "metric": "Error Rate",
+      "operator": ">",
+      "unit": "%",
+      "severity": "warning",
+      "value": "1"
+    },
+    {
+      "id": 4,
+      "metric": "Latency P95",
+      "operator": ">",
+      "unit": "ms",
+      "severity": "error",
+      "value": "2000"
+    }
+  ],
+  "test_plans": [],
+  "config": {
+    "urls": [
+      {
+        "protocol": "https",
+        "url": "dummyjson.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "api.example.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "jsonplaceholder.typicode.com",
+        "port": ""
+      }
+    ]
+  }
+}

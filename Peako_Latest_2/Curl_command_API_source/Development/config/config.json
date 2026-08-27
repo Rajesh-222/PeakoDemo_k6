@@ -1,0 +1,65 @@
+{
+  "project": {
+    "id": 2,
+    "name": "Peako_Latest_2",
+    "description": "K6 End to end",
+    "uuid": "828152"
+  },
+  "collection": {
+    "id": 5,
+    "name": "Curl_command_API source ",
+    "description": "Test with Curl command in K6 ",
+    "source_type": "curl",
+    "environments": [
+      "Development"
+    ],
+    "endpoint_count": 1
+  },
+  "environment": "Development",
+  "rules": [
+    {
+      "id": 3,
+      "metric": "Error Rate",
+      "operator": ">",
+      "unit": "%",
+      "severity": "warning",
+      "value": "1"
+    },
+    {
+      "id": 4,
+      "metric": "Latency P95",
+      "operator": ">",
+      "unit": "ms",
+      "severity": "error",
+      "value": "2000"
+    },
+    {
+      "id": 5,
+      "metric": "Throughput",
+      "operator": "<",
+      "unit": "req/s",
+      "severity": "error",
+      "value": "50"
+    }
+  ],
+  "test_plans": [],
+  "config": {
+    "urls": [
+      {
+        "protocol": "https",
+        "url": "dummyjson.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "api.example.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "jsonplaceholder.typicode.com",
+        "port": ""
+      }
+    ]
+  }
+}
