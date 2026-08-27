@@ -6,14 +6,16 @@
     "uuid": "828152"
   },
   "collection": {
-    "id": 68,
-    "name": "Curl command API source test",
-    "description": "Curl command API source test k6",
-    "source_type": "curl",
-    "environments": [],
-    "endpoint_count": 1
+    "id": 6,
+    "name": "Ran Json / endpoint API source Test",
+    "description": "Ran Json / endpoint API source Test with k6",
+    "source_type": "json",
+    "environments": [
+      "QA"
+    ],
+    "endpoint_count": 4
   },
-  "environment": "Default",
+  "environment": "QA",
   "rules": [
     {
       "id": 3,
@@ -38,6 +40,16 @@
       {
         "protocol": "https",
         "url": "dummyjson.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "api.example.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "jsonplaceholder.typicode.com",
         "port": ""
       }
     ]

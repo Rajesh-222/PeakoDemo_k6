@@ -1,7 +1,7 @@
 {
-  "triggered_at": "2026-08-26T11:45:08.914Z",
-  "script": "Suite_2_curl_command_test_with_k6.js",
+  "triggered_at": "2026-08-27T04:10:20.510Z",
+  "script": "Suite_3_-_K6_Lod_test_with_Raw_Json.js",
   "users": 10,
   "rampup": 30,
-  "duration": 100
+  "duration": 200
 }
