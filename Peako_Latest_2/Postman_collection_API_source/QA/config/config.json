@@ -1,0 +1,63 @@
+{
+  "project": {
+    "id": 2,
+    "name": "Peako_Latest_2",
+    "description": "K6 End to end",
+    "uuid": "828152"
+  },
+  "collection": {
+    "id": 55,
+    "name": "Postman collection API source ",
+    "description": "Postman collection API source  for k6 test with u2",
+    "source_type": "postman",
+    "environments": [
+      "QA",
+      "Development"
+    ],
+    "endpoint_count": 4
+  },
+  "environment": "QA",
+  "rules": [
+    {
+      "id": 6,
+      "metric": "Latency P99",
+      "operator": "<",
+      "unit": "ms",
+      "severity": "error",
+      "value": "500"
+    }
+  ],
+  "test_plans": [
+    {
+      "id": 19,
+      "name": "Suite 1- Postman collection test ",
+      "engine": "k6",
+      "test_type": "load",
+      "vusers": 10,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 150,
+      "status": "pending"
+    }
+  ],
+  "config": {
+    "urls": [
+      {
+        "protocol": "https",
+        "url": "dummyjson.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "api.example.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "jsonplaceholder.typicode.com",
+        "port": ""
+      }
+    ]
+  }
+}
