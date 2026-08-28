@@ -1,0 +1,53 @@
+{
+  "project": {
+    "id": 2,
+    "name": "Peako_Latest_2",
+    "description": "K6 End to end",
+    "uuid": "828152"
+  },
+  "collection": {
+    "id": 146,
+    "name": "Json API soure",
+    "description": "Json API soure",
+    "source_type": "postman",
+    "environments": [
+      "QA"
+    ],
+    "endpoint_count": 4
+  },
+  "environment": "QA",
+  "rules": [],
+  "test_plans": [
+    {
+      "id": 42,
+      "name": "Suite 1 by u1 K6 test",
+      "engine": "k6",
+      "test_type": "load",
+      "vusers": 10,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 100,
+      "status": "pending"
+    }
+  ],
+  "config": {
+    "urls": [
+      {
+        "protocol": "https",
+        "url": "dummyjson.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "api.example.com",
+        "port": ""
+      },
+      {
+        "protocol": "https",
+        "url": "jsonplaceholder.typicode.com",
+        "port": ""
+      }
+    ]
+  }
+}
