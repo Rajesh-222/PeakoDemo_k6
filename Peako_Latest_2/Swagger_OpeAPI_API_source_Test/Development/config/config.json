@@ -6,7 +6,7 @@
     "uuid": "828152"
   },
   "collection": {
-    "id": 7,
+    "id": 154,
     "name": "Swagger / OpeAPI API source Test",
     "description": "Swagger / OpeAPI API source Test with k6",
     "source_type": "swagger",
@@ -19,7 +19,7 @@
   "environment": "Development",
   "rules": [
     {
-      "id": 3,
+      "id": 72,
       "metric": "Error Rate",
       "operator": ">",
       "unit": "%",
@@ -27,7 +27,7 @@
       "value": "1"
     },
     {
-      "id": 4,
+      "id": 73,
       "metric": "Latency P95",
       "operator": ">",
       "unit": "ms",
@@ -35,7 +35,7 @@
       "value": "2000"
     },
     {
-      "id": 5,
+      "id": 74,
       "metric": "Throughput",
       "operator": "<",
       "unit": "req/s",
@@ -45,28 +45,16 @@
   ],
   "test_plans": [
     {
-      "id": 6,
-      "name": "Suite 4 - K6 Load Test with Swagger/ OpeAPI file",
-      "engine": "k6",
+      "id": 44,
+      "name": "Raw_json source test",
+      "engine": "jmeter",
       "test_type": "load",
       "vusers": 10,
-      "rampup": 5,
-      "iter_mode": "duration",
-      "loops": 1,
-      "duration": 200,
-      "status": "generated"
-    },
-    {
-      "id": 10,
-      "name": "Suite 6- Stress test ",
-      "engine": "k6",
-      "test_type": "stress",
-      "vusers": 50,
       "rampup": 30,
       "iter_mode": "duration",
       "loops": 1,
       "duration": 300,
-      "status": "generated"
+      "status": "pending"
     }
   ],
   "config": {
