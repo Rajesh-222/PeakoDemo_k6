@@ -1,0 +1,2 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1788168083024,270,HTTP Request,404,Not Found,Thread Group 1-1,text,false,,794,122,1,1,https://example.com/api/test,267,0,243
