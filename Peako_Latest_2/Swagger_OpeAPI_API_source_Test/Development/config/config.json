@@ -24,26 +24,30 @@
       "operator": ">",
       "unit": "%",
       "severity": "warning",
-      "value": "1"
+      "value": "5"
     },
     {
       "id": 73,
-      "metric": "Latency P95",
+      "metric": "Response Time",
       "operator": ">",
       "unit": "ms",
       "severity": "error",
       "value": "2000"
-    },
-    {
-      "id": 74,
-      "metric": "Throughput",
-      "operator": "<",
-      "unit": "req/s",
-      "severity": "error",
-      "value": "50"
     }
   ],
   "test_plans": [
+    {
+      "id": 58,
+      "name": "Stress test with no existed rules",
+      "engine": "jmeter",
+      "test_type": "stress",
+      "vusers": 50,
+      "rampup": 20,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 100,
+      "status": "pending"
+    },
     {
       "id": 44,
       "name": "Raw_json source test",

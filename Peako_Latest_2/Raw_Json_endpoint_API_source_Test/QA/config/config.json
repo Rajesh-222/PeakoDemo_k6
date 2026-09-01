@@ -16,56 +16,19 @@
     "endpoint_count": 4
   },
   "environment": "QA",
-  "rules": [
-    {
-      "id": 72,
-      "metric": "Error Rate",
-      "operator": ">",
-      "unit": "%",
-      "severity": "warning",
-      "value": "1"
-    },
-    {
-      "id": 73,
-      "metric": "Latency P95",
-      "operator": ">",
-      "unit": "ms",
-      "severity": "error",
-      "value": "2000"
-    },
-    {
-      "id": 74,
-      "metric": "Throughput",
-      "operator": "<",
-      "unit": "req/s",
-      "severity": "error",
-      "value": "50"
-    }
-  ],
+  "rules": [],
   "test_plans": [
     {
-      "id": 51,
-      "name": "Stress Test",
-      "engine": "jmeter",
+      "id": 45,
+      "name": "StressTest_K6",
+      "engine": "k6",
       "test_type": "stress",
-      "vusers": 50,
-      "rampup": 30,
+      "vusers": 100,
+      "rampup": 40,
       "iter_mode": "duration",
       "loops": 1,
-      "duration": 300,
-      "status": "pending"
-    },
-    {
-      "id": 52,
-      "name": "Stress Test implement",
-      "engine": "jmeter",
-      "test_type": "stress",
-      "vusers": 50,
-      "rampup": 30,
-      "iter_mode": "duration",
-      "loops": 1,
-      "duration": 300,
-      "status": "pending"
+      "duration": 400,
+      "status": "generated"
     }
   ],
   "config": {

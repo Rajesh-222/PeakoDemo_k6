@@ -105,35 +105,35 @@
             <stringProp name="0">10</stringProp>
             <stringProp name="1">0</stringProp>
             <stringProp name="2">30</stringProp>
-            <stringProp name="3">1620</stringProp>
+            <stringProp name="3">270</stringProp>
             <stringProp name="4">30</stringProp>
           </collectionProp>
           <collectionProp name="1">
             <stringProp name="0">10</stringProp>
-            <stringProp name="1">330</stringProp>
+            <stringProp name="1">60</stringProp>
             <stringProp name="2">30</stringProp>
-            <stringProp name="3">1290</stringProp>
+            <stringProp name="3">210</stringProp>
             <stringProp name="4">30</stringProp>
           </collectionProp>
           <collectionProp name="2">
             <stringProp name="0">10</stringProp>
-            <stringProp name="1">660</stringProp>
+            <stringProp name="1">120</stringProp>
             <stringProp name="2">30</stringProp>
-            <stringProp name="3">960</stringProp>
+            <stringProp name="3">150</stringProp>
             <stringProp name="4">30</stringProp>
           </collectionProp>
           <collectionProp name="3">
             <stringProp name="0">10</stringProp>
-            <stringProp name="1">990</stringProp>
+            <stringProp name="1">180</stringProp>
             <stringProp name="2">30</stringProp>
-            <stringProp name="3">630</stringProp>
+            <stringProp name="3">90</stringProp>
             <stringProp name="4">30</stringProp>
           </collectionProp>
           <collectionProp name="4">
             <stringProp name="0">10</stringProp>
-            <stringProp name="1">1320</stringProp>
+            <stringProp name="1">240</stringProp>
             <stringProp name="2">30</stringProp>
-            <stringProp name="3">300</stringProp>
+            <stringProp name="3">30</stringProp>
             <stringProp name="4">30</stringProp>
           </collectionProp>
         </collectionProp>
