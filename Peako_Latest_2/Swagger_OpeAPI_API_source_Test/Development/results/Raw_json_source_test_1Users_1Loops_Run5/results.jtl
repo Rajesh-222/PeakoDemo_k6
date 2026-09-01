@@ -1,0 +1,5 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1788168864615,286,createPost,405,Method Not Allowed,Thread Group 1-1,text,false,,967,208,1,1,https://example.com/api/create,282,0,255
+1788168864904,23,getPost,404,Not Found,Thread Group 1-1,text,false,,795,121,1,1,https://example.com/api/get,23,0,0
+1788168864927,22,updatePost,405,Method Not Allowed,Thread Group 1-1,text,false,,967,207,1,1,https://example.com/api/update,22,0,0
+1788168864950,21,deletePost,405,Method Not Allowed,Thread Group 1-1,text,false,,967,210,1,1,https://example.com/api/delete,21,0,0

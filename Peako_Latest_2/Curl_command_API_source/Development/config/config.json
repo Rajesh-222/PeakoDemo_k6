@@ -6,7 +6,7 @@
     "uuid": "828152"
   },
   "collection": {
-    "id": 5,
+    "id": 152,
     "name": "Curl_command_API source ",
     "description": "Test with Curl command in K6 ",
     "source_type": "curl",
@@ -18,7 +18,7 @@
   "environment": "Development",
   "rules": [
     {
-      "id": 3,
+      "id": 72,
       "metric": "Error Rate",
       "operator": ">",
       "unit": "%",
@@ -26,7 +26,7 @@
       "value": "1"
     },
     {
-      "id": 4,
+      "id": 73,
       "metric": "Latency P95",
       "operator": ">",
       "unit": "ms",
@@ -34,7 +34,7 @@
       "value": "2000"
     },
     {
-      "id": 5,
+      "id": 74,
       "metric": "Throughput",
       "operator": "<",
       "unit": "req/s",
@@ -42,7 +42,20 @@
       "value": "50"
     }
   ],
-  "test_plans": [],
+  "test_plans": [
+    {
+      "id": 43,
+      "name": "Suit_Curl_source_test",
+      "engine": "k6",
+      "test_type": "load",
+      "vusers": 10,
+      "rampup": 5,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 100,
+      "status": "generated"
+    }
+  ],
   "config": {
     "urls": [
       {

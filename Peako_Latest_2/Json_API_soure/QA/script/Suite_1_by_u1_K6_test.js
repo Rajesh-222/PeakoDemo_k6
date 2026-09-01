@@ -13,7 +13,9 @@ const BASE_URL = `${PROTOCOL}://${URL}:${PORT}`;
 export const options = {
   scenarios: { load:      { executor: 'constant-vus',       vus: THREADS, duration: DURATION + 's' } },
   thresholds: {
-    http_req_duration: ['p(95)<2000']
+    http_req_failed: ['rate<0.01'],
+    http_req_duration: ['p(95)<2000'],
+    http_reqs: ['rate>50']
   }
 };
 
