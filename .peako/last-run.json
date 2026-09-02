@@ -1,7 +1,0 @@
-{
-  "triggered_at": "2026-08-27T11:47:00.667Z",
-  "script": "Suite_3_-_K6_Lod_test_with_Raw_Json.js",
-  "users": 10,
-  "rampup": 30,
-  "duration": 200
-}
