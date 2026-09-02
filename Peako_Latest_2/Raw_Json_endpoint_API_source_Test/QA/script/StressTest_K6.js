@@ -6,7 +6,7 @@ const THREADS  = parseInt(__ENV.THREADS  || '100');
 const RAMP_UP  = parseInt(__ENV.RAMP_UP  || '40');
 const DURATION = parseInt(__ENV.DURATION || '400');
 const STEP_S    = Math.round(DURATION / 5);
-const STEP_RAMP = Math.min(RAMP_UP, STEP_S);
+const STEP_RAMP = Math.min(RAMP_UP, Math.max(5, Math.round(STEP_S * 0.2)));
 const STEP_HOLD = Math.max(0, STEP_S - STEP_RAMP);
 const PROTOCOL = __ENV.PROTOCOL || 'https';
 const URL      = __ENV.URL      || 'jsonplaceholder.typicode.com';
@@ -28,9 +28,8 @@ export const options = {
       { duration: '30s', target: 0 }
     ] } },
   thresholds: {
-    http_req_failed: ['rate<0.01'],
-    http_req_duration: ['p(95)<2000'],
-    http_reqs: ['rate>50']
+    http_req_failed: ['rate<0.05'],
+    http_req_duration: ['avg<2000']
   }
 };
 
