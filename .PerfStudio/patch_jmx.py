@@ -32,16 +32,19 @@ else:
     else:
         print("  No absolute paths to fix")
 
-def patch_ultimate_thread_group(xml, vusers, rampup, duration):
+def patch_ultimate_thread_group(xml, vusers, duration):
     # Mirrors buildUltimateThreadGroupXml() in testSuites.js EXACTLY (same 5-step
     # staircase formula) -- a stress test's schedule is baked as literal row numbers at
     # script-generation time, not as ${__P(...)} properties like the flat ThreadGroup,
-    # so overriding VUsers/Ramp-up/Duration at CI-trigger time means recomputing every
-    # row here rather than a simple property-value substitution.
+    # so overriding VUsers/Duration at CI-trigger time means recomputing every row here
+    # rather than a simple property-value substitution. No rampup parameter: the step
+    # transition is derived purely from vusers/duration, never a user-supplied ramp-up --
+    # see buildUltimateThreadGroupXml's matching comment for why (Ramp-up is blocked/hidden
+    # in the UI for stress tests entirely).
     steps = 5
     shutdown_s = 30
     step_budget = duration / steps
-    step_ramp = min(rampup, max(5, round(step_budget * 0.2)))
+    step_ramp = max(5, round(step_budget * 0.2))
     t_end = steps * step_budget
 
     rows = []
@@ -71,7 +74,7 @@ if "UltimateThreadGroup" in content:
     # Stress test plan -- the staircase row values, not ThreadGroup.num_threads/ramp_time/
     # duration (those properties don't exist on this element), carry the load profile.
     if use_duration:
-        content = patch_ultimate_thread_group(content, int(users), int(rampup), int(duration))
+        content = patch_ultimate_thread_group(content, int(users), int(duration))
     else:
         print("  WARN: stress test (UltimateThreadGroup) needs Duration mode - loops override skipped")
 else:
