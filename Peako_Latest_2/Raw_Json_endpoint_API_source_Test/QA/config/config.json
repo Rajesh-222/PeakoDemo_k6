@@ -36,6 +36,18 @@
   ],
   "test_plans": [
     {
+      "id": 168,
+      "name": "Spike Test sample",
+      "engine": "jmeter",
+      "test_type": "spike",
+      "vusers": 300,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 250,
+      "status": "generated"
+    },
+    {
       "id": 45,
       "name": "StressTest_K6",
       "engine": "k6",
