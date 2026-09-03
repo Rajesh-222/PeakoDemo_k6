@@ -36,6 +36,18 @@
   ],
   "test_plans": [
     {
+      "id": 197,
+      "name": "Endurance Test 2",
+      "engine": "k6",
+      "test_type": "endurance",
+      "vusers": 50,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 300,
+      "status": "pending"
+    },
+    {
       "id": 43,
       "name": "Suit_Curl_source_test",
       "engine": "k6",
