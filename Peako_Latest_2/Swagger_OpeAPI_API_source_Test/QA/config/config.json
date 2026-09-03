@@ -49,6 +49,18 @@
       "status": "generated"
     },
     {
+      "id": 196,
+      "name": "Endurance Test Sample",
+      "engine": "jmeter",
+      "test_type": "endurance",
+      "vusers": 50,
+      "rampup": 30,
+      "iter_mode": "duration",
+      "loops": 1,
+      "duration": 6000,
+      "status": "pending"
+    },
+    {
       "id": 44,
       "name": "Raw_json source test",
       "engine": "jmeter",

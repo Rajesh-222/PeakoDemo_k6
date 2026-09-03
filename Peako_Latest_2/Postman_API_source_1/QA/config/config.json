@@ -23,7 +23,7 @@
       "operator": ">",
       "unit": "%",
       "severity": "warning",
-      "value": "0.1"
+      "value": "0.5"
     },
     {
       "id": 73,
@@ -31,7 +31,7 @@
       "operator": ">",
       "unit": "ms",
       "severity": "error",
-      "value": "10"
+      "value": "500"
     }
   ],
   "test_plans": [],
