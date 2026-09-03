@@ -67,16 +67,75 @@ def patch_ultimate_thread_group(xml, vusers, duration):
         return (m.group(1) + str(r[0]) + m.group(2) + str(r[1]) + m.group(3) + str(r[2])
                 + m.group(4) + str(r[3]) + m.group(5) + str(r[4]) + m.group(6))
     new_xml, n = row_re.subn(repl, xml)
-    print("  RESCALED " + str(n) + " UltimateThreadGroup row(s) -> VUsers=" + str(vusers) + " Ramp=" + str(rampup) + " Duration=" + str(duration))
+    print("  RESCALED " + str(n) + " UltimateThreadGroup row(s) -> VUsers=" + str(vusers) + " Duration=" + str(duration))
+    return new_xml
+
+def patch_spike_thread_group(xml, vusers, duration):
+    # Mirrors buildSpikeThreadGroupXml() in testSuites.js EXACTLY (same baseline/ramp/peak/
+    # ramp/recovery phase split, including the multi-spike formula for 2-3 cycles) -- same
+    # reasoning as patch_ultimate_thread_group above: the schedule is baked as literal
+    # numbers, not ${__P(...)} properties, and there's no rampup parameter since Ramp-up is
+    # blocked/hidden in the UI for spike tests too.
+    #
+    # spike_count is NOT recomputed from the override duration -- it's read from however many
+    # rows already exist in the file (baked in at generation time from the suite's SAVED
+    # duration, same as STRESS_STEPS always being 5 regardless of override). Only the TIMING
+    # within that fixed row count rescales here; the row count itself never changes on a
+    # trigger-time override, exactly like stress.
+    row_re = re.compile(
+        r'(<collectionProp name="\d+">\s*<stringProp name="0">)\d+(</stringProp>\s*'
+        r'<stringProp name="1">)\d+(</stringProp>\s*<stringProp name="2">)\d+(</stringProp>\s*'
+        r'<stringProp name="3">)\d+(</stringProp>\s*<stringProp name="4">)\d+(</stringProp>\s*</collectionProp>)'
+    )
+    existing_row_count = len(row_re.findall(xml))
+    spike_count = max(1, existing_row_count - 1)
+
+    baseline_users = max(1, round(vusers * 0.10))
+    spike_add = max(0, vusers - baseline_users)
+    baseline_startup = 5
+    baseline_hold = max(0, duration - baseline_startup)
+    shutdown_s = 30
+
+    rows = [(baseline_users, 0, baseline_startup, baseline_hold, shutdown_s)]
+
+    if spike_count == 1:
+        before_s = round(duration * 0.20)
+        ramp_s = max(5, round(duration * 0.03))
+        peak_s = round(duration * 0.15)
+        rows.append((spike_add, before_s, ramp_s, peak_s, ramp_s))
+    else:
+        ramp_s = max(5, round(duration * 0.03))
+        peak_s = max(5, round(duration * 0.08))
+        non_baseline_per_cycle = 2 * ramp_s + peak_s
+        total_baseline = max(0, duration - spike_count * non_baseline_per_cycle)
+        gap_s = round(total_baseline / (spike_count + 1))
+        t = 0
+        for _ in range(spike_count):
+            t += gap_s
+            rows.append((spike_add, t, ramp_s, peak_s, ramp_s))
+            t += ramp_s + peak_s + ramp_s
+
+    row_iter = iter(rows)
+    def repl(m):
+        r = next(row_iter)
+        return (m.group(1) + str(r[0]) + m.group(2) + str(r[1]) + m.group(3) + str(r[2])
+                + m.group(4) + str(r[3]) + m.group(5) + str(r[4]) + m.group(6))
+    new_xml, n = row_re.subn(repl, xml)
+    print("  RESCALED " + str(n) + " spike UltimateThreadGroup row(s) (" + str(spike_count) + " spike(s)) -> VUsers=" + str(vusers) + " Duration=" + str(duration))
     return new_xml
 
 if "UltimateThreadGroup" in content:
-    # Stress test plan -- the staircase row values, not ThreadGroup.num_threads/ramp_time/
-    # duration (those properties don't exist on this element), carry the load profile.
+    # Stress/spike test plan -- the staircase/spike row values, not ThreadGroup.num_threads/
+    # ramp_time/duration (those properties don't exist on this element), carry the load
+    # profile. Distinguished by testname -- both use the same plugin element, just a
+    # different row count/shape.
     if use_duration:
-        content = patch_ultimate_thread_group(content, int(users), int(duration))
+        if 'testname="Spike Thread Group"' in content:
+            content = patch_spike_thread_group(content, int(users), int(duration))
+        else:
+            content = patch_ultimate_thread_group(content, int(users), int(duration))
     else:
-        print("  WARN: stress test (UltimateThreadGroup) needs Duration mode - loops override skipped")
+        print("  WARN: stress/spike test (UltimateThreadGroup) needs Duration mode - loops override skipped")
 else:
     content = sp(content, "ThreadGroup.num_threads", users)
     content = sp(content, "ThreadGroup.ramp_time", rampup)
