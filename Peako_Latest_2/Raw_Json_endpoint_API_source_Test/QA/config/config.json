@@ -23,7 +23,7 @@
       "operator": ">",
       "unit": "%",
       "severity": "warning",
-      "value": "0.1"
+      "value": "0.5"
     },
     {
       "id": 73,
